@@ -1,0 +1,24 @@
+{
+    "name": "express-shared-routes",
+    "version": "0.0.9",
+    "private": false,
+    "main": "index",
+    "repository" :
+    {
+        "type" : "git",
+        "url" : "https://github.com/hrajchert/express-shared-routes.git"
+    },
+    "dependencies" : {
+        "underscore" : "*",
+        "amdefine" : "*"
+    },
+    "devDependencies": {
+        "mocha" : "*",
+        "coffee-script" : "*",
+        "grunt" : "*",
+        "grunt-contrib-coffee" : "*",
+        "grunt-contrib-copy" : "*",
+        "grunt-cafe-mocha" : "*",
+        "should": "*"
+    }
+}
