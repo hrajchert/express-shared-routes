@@ -54,18 +54,18 @@ describe 'RouteManager', () ->
             cb: dummyMethod
 
         # The difference between the following route and the above, is that the following uses a "new"
-        # concept where you can define the pre-requisites of the function separate from the actual route
+        # concept where you can define the middleware of the function separate from the actual route
         # handler.
-        route_with_pre_middleware =
-            re: "/someRoute_with_pre_and_handler"
-            name: "route_with_cb_middleware"
-            pre: dummyMethod
+        route_with_handler_and_middleware =
+            re: "/someRoute_with_mw_and_handler"
+            name: "route_with_handler_and_middleware"
+            mw: dummyMethod
             handler: dummyMethod2
 
-        # Same as route_with_pre_middleware but without prerequisites
-        route_with_handler_nopre_middleware =
-            re: "/someRoute_with_handler_nopre"
-            name: "route_with_cb_middleware"
+        # Same as route_with_handler_and_middleware but without middleware
+        route_with_handler_no_middleware =
+            re: "/route_with_handler_no_middleware"
+            name: "route_with_handler_no_middleware"
             handler: dummyMethod
 
         beforeEach () ->
@@ -90,17 +90,17 @@ describe 'RouteManager', () ->
 
             it 'should not throw when inserting without a middleware, but the middleware is defined in the route using pre and handler', () ->
                 (() ->
-                    routes.get route_with_pre_middleware
+                    routes.get route_with_handler_and_middleware
                 ).should.not.throw();
 
-            it 'should concatenate the pre and the handler', () ->
-                routes.get route_with_pre_middleware
+            it 'should concatenate the middleware and the handler', () ->
+                routes.get route_with_handler_and_middleware
                 # This knows about the implementation, :S
                 route = routes.routeList[0]
                 route.cb.should.have.lengthOf(2)
 
-            it 'should work with the handler and no pre', () ->
-                routes.get route_with_handler_nopre_middleware
+            it 'should work with the handler and no middleware', () ->
+                routes.get route_with_handler_no_middleware
                 # This knows about the implementation, :S
                 route = routes.routeList[0]
                 route.cb.should.have.lengthOf(1)
@@ -112,7 +112,7 @@ describe 'RouteManager', () ->
                 route.cb.should.have.lengthOf(2)
 
             it 'should override the default middleware using pre', () ->
-                routes.get route_with_pre_middleware, dummyMethod
+                routes.get route_with_handler_and_middleware, dummyMethod
                 # This knows about the implementation, :S
                 route = routes.routeList[0]
                 route.cb.should.have.lengthOf(1)

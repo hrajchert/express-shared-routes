@@ -71,21 +71,21 @@ class RouteManager
 
             # If we have a handler, lets build our cb from that (will override previous cb)
             if r.handler? and _.isFunction r.handler
-                # If pre is defined, thats the base of our new cb
-                if r.pre?
-                    # If the pre-requisites its a function, convert it to a one element array
-                    if _.isFunction r.pre
-                        r.cb = [r.pre]
+                # If mw is defined, thats the base of our new cb
+                if r.mw?
+                    # If the mw (middleware) its a function, convert it to a one element array
+                    if _.isFunction r.mw
+                        r.cb = [r.mw]
                     # If its an array, smush it right there
-                    else if _.isArray r.pre
-                        r.cb = r.pre
+                    else if _.isArray r.mw
+                        r.cb = r.mw
                     else
-                        throw new Error 'Invalid pre-requisites type'
+                        throw new Error 'Invalid middleware type'
                 else
-                    # If pre is not defined, we asume empty pre-requisites
+                    # If mw is not defined, we asume empty middleware
                     r.cb = []
 
-                # If we are here, then r.cb is an array with the pre-requisites, if any, lets add our handler
+                # If we are here, then r.cb is an array with the middleware, if any, lets add our handler
                 r.cb.push r.handler
 
 
