@@ -2,7 +2,7 @@
 
 > Named routes for the express framework that are shared between the server and the browser.
 
-This is a minimalistic library (around 200 lines of code) that allows you to softcode your routes and ease the creation of navigation components like menus and breadcrums. The routes are normally defined in the server and can be exported to the browser (if you need client side rendering of links). The library has no dependencies in the browser, weights 370 Bytes gziped and is coded using a [UMD](https://github.com/umdjs/umd) pattern, so you can use it directly or with [RequireJS](http://requirejs.org/).
+This is a minimalistic library (around 200 lines of code) that allows you to softcode your routes and ease the creation of navigation components like menus and breadcrumbs. The routes are normally defined in the server and can be exported to the browser (if you need client side rendering of links). The library has no dependencies in the browser, weights 370 Bytes gziped and is coded using a [UMD](https://github.com/umdjs/umd) pattern, so you can use it directly or with [RequireJS](http://requirejs.org/).
 
 #### Name your routes
 
@@ -94,12 +94,17 @@ You got this far and you are still interested? Check out how to install and boot
 
 Once you learn the basics, check out how to [create a menu bar](https://github.com/hrajchert/express-shared-routes-examples/blob/master/docs/2-menu.md) and share your routes with the client. Are you using RequireJS? [Here is the same example](https://github.com/hrajchert/express-shared-routes-examples/blob/master/docs/3-menu-requirejs.md) using AMD loader.
 
-See how to create complex navigation like this [Breadcrum example](https://github.com/hrajchert/express-shared-routes-examples/blob/master/docs/4-breadcrum.md).
+See how to create complex navigation like this [Breadcrumb example](https://github.com/hrajchert/express-shared-routes-examples/blob/master/docs/4-breadcrumb.md).
 
-### TODO
-* Add a string as parent property
-* Add an example of modular MVC express apps
-* Ability to override a rule
-* Maybe add a prototype to the routes so it take less code to do navigation tools
+### Whats comming?
+> aka: TODO
+
+* Add an example of how this plays with Backbone to do a <b>S</b>ingle <b>P</b>age <b>A</b>pplication
+* Add an example of how it can be used to build a modular MVC express app
+* Change the parent property to allow to use a string (the name of the route) instead of having to pass the Object Literal
+* Add the ability to override a rule (could be useful for MVC)
+* Maybe add prototype inheritance to the routes so it take less code to do some navigation tools
+
+
 
 
