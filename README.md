@@ -96,8 +96,7 @@ Once you learn the basics, check out how to [create a menu bar](https://github.c
 
 See how to create complex navigation like this [Breadcrumb example](https://github.com/hrajchert/express-shared-routes-examples/blob/master/docs/4-breadcrumb.md).
 
-### Whats comming?
-> aka: TODO
+### What's comming?
 
 * Add an example of how this plays with Backbone to do a <b>S</b>ingle <b>P</b>age <b>A</b>pplication
 * Add an example of how it can be used to build a modular MVC express app
@@ -105,6 +104,10 @@ See how to create complex navigation like this [Breadcrumb example](https://gith
 * Add the ability to override a rule (could be useful for MVC)
 * Maybe add prototype inheritance to the routes so it take less code to do some navigation tools
 
+### Please give feedback
 
+Do you like the idea? Is the documentation clear? Would you like to see some new feature? or just send love
+
+hrajchert@gmail.com
 
 
