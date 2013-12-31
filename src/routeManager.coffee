@@ -78,7 +78,8 @@ class RouteManager
                         r.cb = [r.mw]
                     # If its an array, smush it right there
                     else if _.isArray r.mw
-                        r.cb = r.mw
+                        # the slice is to clone it
+                        r.cb = r.mw.slice 0
                     else
                         throw new Error 'Invalid middleware type'
                 else
@@ -91,7 +92,7 @@ class RouteManager
 
         # Throw an error if we end up with no cb
         if not r.cb? or not _.isArray(r.cb) or r.cb.length == 0
-            throw new Error 'Invalid callback supplied'
+            throw new Error "Route #{ route.name } has invalid callback"
 
         # See if want to inject in the request the matched route
         if @options? and @options.injectToLocals?
@@ -101,6 +102,13 @@ class RouteManager
         r.method = method
 
         @routeList.push r
+
+    getMiddleware: (route_name) ->
+        r = @routeMap[route_name]
+        # If the mw (middleware) its a function, convert it to a one element array
+        if _.isFunction r.mw
+            return [r.mw]
+        return r.mw
 
     injectToLocals: (route) ->
         reqVar = @options.injectToLocals

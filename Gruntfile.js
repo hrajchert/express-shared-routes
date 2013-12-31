@@ -68,6 +68,6 @@ module.exports = function(grunt) {
 
     // Default task(s).
     grunt.registerTask('default', ['coffee','umd', 'uglify']);
-    grunt.registerTask('test', ['coffee','cafemocha']);
+    grunt.registerTask('test', ['coffee','umd','cafemocha']);
 
 };

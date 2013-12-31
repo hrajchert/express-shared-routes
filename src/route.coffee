@@ -44,6 +44,11 @@ class Route
             # Add it in order in the parameter list
             route._parameters.push parameter
 
+    getParameters: (route) ->
+        if not route._parameters?
+            @analizeRoute route
+        return route._parameters
+
     getLink: (route, attr) ->
 
         if not route._parameters?

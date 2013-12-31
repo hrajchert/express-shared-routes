@@ -24,5 +24,12 @@ class RouteBrowserManager
         r = @getRoute route
         @route.getLink r, attr
 
+    getRe: (route) ->
+        r = @getRoute route
+        @route.getRe r
+
+    getParameters: (route) ->
+        r = @getRoute route
+        @route.getParameters r
 
 
